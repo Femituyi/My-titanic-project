@@ -1,0 +1,50 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline
+
+df = pd.read_csv('train.csv')
+
+df.head()
+
+df.info()
+
+df = df.iloc[:,2:]
+
+print(df)
+
+df.drop('Cabin', axis=1)
+
+df.drop('Cabin', axis=1, inplace = True)
+
+df
+
+print(df['Age'].max())
+
+def Age_category(age):
+    if age<10:
+        return 'Kid'
+    elif age<17:
+        return 'Teenager'
+    elif age<29:
+        return 'Adult'
+    else:
+        return 'Elderly'
+
+
+# df.['Age_clasification']=lamda age=df.['Age_clasification']:age_catigory(age)
+
+print(df)
+
+df['Age'].fillna(df['Age'].mean(),inplace=True)
+
+
+df
+
+df.drop('Ticket',axis=1,inplace=True)
+
+df
+
+plt.bar(df,'Pclass')
+
